@@ -1,0 +1,27 @@
+<div class="border-b-2">
+    <h2 class="text-2xl font-bold mb-3">
+        <%= link_to post.user.name, user_path(id: post.user_id) %>
+    </h2>
+    <h2 class="text-2xl font-bold mb-3">
+        <%= link_to post.title, post_path(post) %>
+    </h2>
+        <p><%= post.body %></p>
+    <div class="flex gap-5">
+        <% if current_user && current_user.id == post.user.id %>
+        <p class="underline underline-offset-2 text-blue-500">
+            <%= link_to "Edit", edit_post_path(post) %>
+        </p>
+        <p class="underline underline-offset-2 text-red-500">
+            <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        </p>
+        <% end %>
+    </div>
+    <h2>Tags</h2>
+        <% post.tags.each do |tag| %>
+            <%= tag.name %>
+        <% end %>
+    <p>
+    Comments(<%= post.comments.count %>)
+    </p>
+    
+</div>

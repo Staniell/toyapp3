@@ -1,0 +1,9 @@
+<h1 class="mt-5 text-2xl font-bolder">All Comments</h1>
+<h1 class="mt-5">
+    <% @comments.each do |comment| %>
+    <div>
+        <p class="block">From <span class="hover:text-blue-500"><%= link_to comment.post.title, post_path(comment.post) %></span></p>
+        <p class="block"><%= comment.body %></p>
+    </div>
+    <% end %>
+</h1>
