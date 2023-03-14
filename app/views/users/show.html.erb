@@ -24,13 +24,15 @@
       </div>
     </div>
   
-    <% if current_user && current_user.id == @user.id %>
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-  
-      <button class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-      </button>
-    <% end %>
+    <div class="flex flex-wrap items-center justify-center gap-5">
+      <% if current_user && current_user.id == @user.id %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        </button>
+      <% end %>
+    </div>
   
   </div>
   <h1 class="font-bold text-center text-2xl mt-4">All Toy Posts</h1>
