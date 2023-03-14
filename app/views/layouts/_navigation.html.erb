@@ -3,17 +3,17 @@
      hover:bg-slate-50 hover:cursor-pointer">Toy App</span></h1>
     <ul class="flex justify-end mr-5">
         <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-2xl font-bold">
+             <%= link_to "Posts", "/posts" %>
+        </li>
+        <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-2xl font-bold">
+             <%= link_to "Gallery", "/comments" %>
+        </li>
+        <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-2xl font-bold">
             <% if current_user %>
                 <%= link_to "Profile", user_path(current_user) %>
             <% else %>
                  <%= link_to "Login", new_user_session_path %>
             <% end %>
-        </li>
-        <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-2xl font-bold">
-             <%= link_to "Posts", "/posts" %>
-        </li>
-        <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-2xl font-bold">
-             <%= link_to "Comments", "/comments" %>
         </li>
     </ul>
 </nav>
