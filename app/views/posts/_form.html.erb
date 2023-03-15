@@ -22,8 +22,9 @@
         
         <%= f.fields_for :images do |image| %>
             <div class="form-group">
-            <%= image.file_field :image, multiple: true %>
-            <div id="image-preview"></div>
+                <h1 class="text-xl font-bold text-center">Image(s)</h1>
+                <%= image.file_field :image, multiple: true, class:"p-2 mb-3" %>
+                <div class="overflow-auto flex max-h-96" id="image-preview"></div>
             </div>
         <% end %>
 
