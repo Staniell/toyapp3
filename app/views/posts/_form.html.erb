@@ -19,26 +19,14 @@
             <% end %>
         </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.fields_for :images do |image| %>
-
-  <div class="form-group">
-    <%= image.file_field :image, multiple: true %>
-    <div id="image-preview">
-      <% if f.object.images.attached? %>
-        <% f.object.images.each do |img| %>
-          <div class="image-preview-container">
-            <%= image_tag img.variant(resize_to_limit: [400, 400]), class: 'image-preview' %>
-            <div class="image-preview-controls">
-              <%= link_to 'Edit', '#', class: 'edit-image' %>
-              <%= link_to 'Delete', '#', class: 'delete-image' %>
+        
+        <%= f.fields_for :images do |image| %>
+            <div class="form-group">
+            <%= image.file_field :image, multiple: true %>
+            <div id="image-preview"></div>
             </div>
-          </div>
         <% end %>
-      <% end %>
-    </div>
-    <span class="file-count text-gray-500 text-sm">No files selected</span>
-  </div>
-<% end %>
+
         <%= f.submit "Save", class:"mt-6 hover:shadow-md hover:cursor-pointer hover:text-blue-500 shadow-sm border-2 lg:w-1/4 m-auto p-2 font-bold rounded-md bg-white" %>
     </div>
 <% end %>
