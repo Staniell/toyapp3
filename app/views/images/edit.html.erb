@@ -1,0 +1,7 @@
+<%= image_tag @image %>
+
+<%= form_with(model: [@post, @image], url: post_image_path(@post, @image), method: :put, local: true) do |form| %>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <%= form.submit 'Update Image' %>
+<% end %>

@@ -1,19 +1,25 @@
-<div class="border-b pb-4">
+<div class="border-2 rounded-md p-2 flex flex-col justify-center">
   <div class="flex flex-col mb-2">
       <%= link_to post.user.name, user_path(id: post.user_id), class:"text-lg hover:text-blue-500 w-fit" %>
-      <%= link_to post.title, post_path(post), class: "text-xl font-bold hover:text-blue-500 w-fit" %>
+      <%= link_to post.title, post_path(post), class: "text-xl m-auto font-bold hover:text-blue-500 w-fit" %>
   </div>
   <% if post.images.attached? %>
-    <% post.images.each do |image| %>
-      <%= image_tag image %>
-    <% end %>
+    <div class="flex overflow-auto gap-4">
+      <% post.images.each do |image| %>
+        <%= image_tag image, class:"w-64 h-64 m-auto" %>
+      <% end %>
+    </div>
   <% end %>
-  <p class="text-gray-700 mb-2"><%= post.body %></p>
-  <div class="flex flex-wrap gap-2">
+  <p class="text-gray-700 my-2 p-4 text-center"><%= post.body %></p>
+  <div class="flex flex-wrap gap-2 mt-6">
     <% post.tags.each do |tag| %>
-      <span class="px-2 py-1 bg-gray-200 rounded-full text-sm">
-        <%= tag.name %>
-      </span>
+        <% if tag.name == "Figurine" %>
+          <span class="px-2 py-1 bg-yellow-200 rounded-full text-sm"><%= tag.name %></span>
+        <% elsif tag.name == "Collection" %>
+          <span class="px-2 py-1 bg-sky-200 rounded-full text-sm"><%= tag.name %></span>
+        <% else %>
+          <span class="px-2 py-1 bg-pink-200 rounded-full text-sm"><%= tag.name %></span>
+        <% end %>
     <% end %>
   </div>
   <% if current_user && current_user.id == post.user.id %>
@@ -26,10 +32,10 @@
       </p>
     </div>
   <% end %>
-  <p class="text-gray-700 mt-2">
+  <p class="text-gray-700 mt-2 text-sm">
     Comments(<%= post.comments.count %>)
   </p>
-  <p class="text-gray-700 mt-2 text-sm">
+  <p class="text-gray-700 mt-2 text-xs">
     <%= standard_datetime(post.updated_at) %>
   </p>
 </div>

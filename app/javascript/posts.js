@@ -1,6 +1,8 @@
 document.addEventListener("turbo:load", function () {
   // Get the file input field
   const input = document.querySelector('input[type="file"]');
+  
+  document.getElementById("image-preview").innerHTML = "";
 
   // Listen for changes to the file input field
   input.addEventListener("change", (e) => {
