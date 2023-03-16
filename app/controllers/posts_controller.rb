@@ -29,7 +29,6 @@ class PostsController < ApplicationController
   
     def update
       if @post.update(post_params)
-        @post.images.attach(params[:new_images])
         redirect_to posts_path
         # binding.pry
       else
