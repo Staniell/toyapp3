@@ -22,14 +22,14 @@
         <div class="flex flex-col gap-5 justify-center mt-2 items-center">
           <%= f.label :images, class:"text-xl font-bold" %>
             <% if @post.images.attached? %>
-                <div class="flex overflow-auto gap-4 items-center justify-center">
+                <div class="flex overflow-auto gap-4 p-3 flex-wrap lg:flex-nowrap items-center justify-center">
                 <% @post.images.each do |image| %>
                     <div class="relative">
                         <%= image_tag image, class: "w-64 h-64 m-auto" %>
                         <div class="absolute bottom-0 left-0 w-full p-2 bg-white opacity-80">
                             <div class="flex justify-between">
-                            <%= link_to 'Update', edit_post_image_path(id: image.id, post_id: @post.id), class:"hover:bg-white hover:shadow-md hover:opacity-100 p-1" %>
-                            <%= link_to 'Delete', post_image_path(id: image.id, post_id: @post.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"hover:bg-white hover:shadow-md hover:opacity-100 p-1" %>
+                            <%= link_to 'Update', edit_post_image_path(id: image.id, post_id: @post.id), class:"hover:bg-white hover:shadow-md hover:opacity-100 hover:text-blue-500 p-1" %>
+                            <%= link_to 'Delete', post_image_path(id: image.id, post_id: @post.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"hover:bg-white hover:shadow-md hover:opacity-100 hover:text-red-500 p-1" %>
                             </div>
                         </div>
                     </div>
