@@ -6,16 +6,13 @@
 
     <% if post.images.attached? %>
     <div data-controller="carousel" class="swiper-container overflow-hidden relative" data-carousel-options-value='{"direction": "horizontal",   "pagination": { "el": ".swiper-pagination", 
-                    "dynamicBullets": "true", "clickable": "true" }, "navigation": { "nextEl": ".swiper-button-next", 
-                    "prevEl": ".swiper-button-prev"}}'>
+                    "dynamicBullets": "true", "clickable": "true" }}'>
     <div class="swiper-wrapper">
       <% post.images.each do |image| %>
         <div class="swiper-slide"><%= image_tag image, class:"w-64 h-64 m-auto" %></div>
       <% end %>
     </div>
       <div class="swiper-pagination absolute bottom-0"></div>
-        <div class="swiper-button-prev absolute bottom-0"></div>
-  <div class="swiper-button-next absolute bottom-0"></div>
     </div>
     <% end %>
 
