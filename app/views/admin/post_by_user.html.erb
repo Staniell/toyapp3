@@ -1,3 +1,6 @@
+<h1 class="font-bold text-2xl text-center mt-4">Toys of <%=@user.name%></h1>
+
+<% if @posts.count > 0 %>
 <div class="lg:grid lg:grid-cols-4 items-stretch justify-center m-4 mt-4">
     <% @posts.each do |post| %>
       <div class="border-2 p-4 justify-center flex flex-col">
@@ -43,3 +46,9 @@
     <% end %>
   </div>
 </div>
+
+<% else %>
+
+<h1 class="font-bold text-2xl text-center mt-4"><%=@user.name%> currently has no toy.</h1>
+
+<% end %>

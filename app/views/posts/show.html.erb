@@ -23,11 +23,13 @@
             <div class="flex flex-wrap gap-2 p-4">
                 <% @post.tags.each do |tag| %>
                     <% if tag.name == "Figurine" %>
-                    <span class="px-2 py-1 bg-yellow-200 rounded-full text-sm"><%= tag.name %></span>
+                        <span class="px-2 py-1 bg-yellow-200 rounded-full text-sm"><%= tag.name %></span>
                     <% elsif tag.name == "Collection" %>
-                    <span class="px-2 py-1 bg-sky-200 rounded-full text-sm"><%= tag.name %></span>
+                        <span class="px-2 py-1 bg-sky-200 rounded-full text-sm"><%= tag.name %></span>
+                    <% elsif tag.name == "Plush" %>
+                        <span class="px-2 py-1 bg-pink-200 rounded-full text-sm"><%= tag.name %></span>
                     <% else %>
-                    <span class="px-2 py-1 bg-pink-200 rounded-full text-sm"><%= tag.name %></span>
+                        <span class="px-2 py-1 bg-gray-200 rounded-full text-sm"><%= tag.name %></span>
                     <% end %>
                 <% end %>
             </div>

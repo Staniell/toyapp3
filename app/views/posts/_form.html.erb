@@ -40,12 +40,12 @@
                     </div>
                 <% end %>
                 </div>
-            <% end %>
-        <% if @post.images.attached? %>
+            <% else %>
             <%= f.file_field :images, multiple: true %>
+
+            <div class="overflow-auto flex max-h-96" id="image-preview"></div>
+            </div>  
         <% end %>
-        <div class="overflow-auto flex max-h-96" id="image-preview"></div>
-        </div>  
 
 
         <% if @post.images.attached? %>

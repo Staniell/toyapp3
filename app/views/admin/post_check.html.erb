@@ -3,7 +3,8 @@
     <div class="lg:grid lg:grid-cols-4 items-center justify-center">
         <%= @posts.each_with_index do |post, index| %>
             <div class="p-3 border-2 bg-slate-50">
-                <span class="hover:cursor-pointer hover:text-blue-500 block">Title:<%= post.title %></span>
+                <span class="block hover:cursor-pointer hover:text-blue-500">User:<%= link_to post.user.name, "/admin/post_by_user/#{post.user.id}" %></span>
+                <span class="block">Title:<%= post.title %></span>
                 <span class="block">Content:<%= post.body %></span>
                 <% if post.images.attached? %>
                     <div data-controller="carousel" class="swiper-container overflow-hidden relative mb-5" data-carousel-options-value='{"direction": "horizontal",   "pagination": { "el": ".swiper-pagination", 
