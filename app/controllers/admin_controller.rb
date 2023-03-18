@@ -7,11 +7,15 @@ class AdminController < ApplicationController
     end
 
     def create_tag
-        @new_tag = Tag.new(name: params[:name])
-        if @new_tag.save
+        @tag_count = Tag.count
+        if @tag_count < 5
+            @new_tag = Tag.new(name: params[:name])
+            @new_tag.save
             redirect_to "/admin/new_tag"
         else
-            render :index
+            flash[:alert] = "You cannot create more than 5 tags."
+            redirect_to "/admin/new_tag"
+            # render :index
         end
     end
 

@@ -1,5 +1,12 @@
 class ImagesController < ApplicationController
-    before_action :set_image_post
+    before_action :set_image_post, except: [:index]
+
+    def index
+        # @images = ActiveStorage::Attachment.all.map(&:blob)
+        @images = ActiveStorage::Attachment.order('RANDOM()').limit(10)
+        @images2 = ActiveStorage::Attachment.where.not(id: @images.pluck(:id)).order('RANDOM()').limit(10)
+
+    end
 
     def destroy
         @image.purge

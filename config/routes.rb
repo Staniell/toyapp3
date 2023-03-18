@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   end
   resources :comments
 
+  get "images", to: "images#index"
+
   # Defines the root path route ("/")
   root "posts#index"
 end

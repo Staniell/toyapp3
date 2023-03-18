@@ -17,22 +17,33 @@ class PostsController < ApplicationController
     def create
       @post = Post.new(post_params)
       @post.user = current_user
-      if @post.save
+      if @post.valid? && @post.save
         redirect_to posts_path
       else
-        render :new
+        flash[:alert] = "Title must be between 3 and 20 characters. Content must be between 5 and 30 characters."
+        redirect_to new_post_path
       end
     end
+    # def create
+    #   @post = Post.new(post_params)
+    #   @post.user = current_user
+    #   if @post.save
+    #     redirect_to posts_path
+    #   else
+    #     render :new
+    #   end
+    # end
+  
   
     def edit
     end
   
     def update
-      if @post.update(post_params)
+      if @post.update(post_params) && @post.valid?
         redirect_to posts_path
-        # binding.pry
       else
-        render :edit
+        flash[:alert] = "Title and body must be between 5 and 30 characters."
+        redirect_to edit_post_path
       end
     end
   
@@ -45,7 +56,7 @@ class PostsController < ApplicationController
     private
   
     def post_params
-      params.require(:post).permit(:title, :body, tag_ids: [], images:[])
+      params.require(:post).permit(:title, :body, :user_id, tag_ids: [], images:[])
     end
   
     def set_post
