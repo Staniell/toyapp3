@@ -24,16 +24,7 @@ class PostsController < ApplicationController
         redirect_to new_post_path
       end
     end
-    # def create
-    #   @post = Post.new(post_params)
-    #   @post.user = current_user
-    #   if @post.save
-    #     redirect_to posts_path
-    #   else
-    #     render :new
-    #   end
-    # end
-  
+
   
     def edit
     end
