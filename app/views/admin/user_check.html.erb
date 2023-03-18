@@ -8,6 +8,7 @@
                 <p>Username: <%=link_to user.name, "post_by_user/#{user.id}" %></p>
                 <p>Posts: <%= user.posts.count %></p>
                 <p>Comments: <%= user.comments.count %></p>
+                <p class="text-gray-700 mt-2 text-xs"><%= standard_datetime(user.created_at) %></p>
                 <%= link_to "Delete","user_check/#{user.id}" ,data:{turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"mx-5 bg-red-100 p-2 m-2 w-fit hover:text-red-500" %>
             </div>
         <% end %>
