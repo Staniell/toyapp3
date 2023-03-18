@@ -41,8 +41,9 @@
                 <% end %>
                 </div>
             <% end %>
-        <%= f.file_field :images, multiple: true %>
-
+        <% if @post.images.attached? %>
+            <%= f.file_field :images, multiple: true %>
+        <% end %>
         <div class="overflow-auto flex max-h-96" id="image-preview"></div>
         </div>  
 
