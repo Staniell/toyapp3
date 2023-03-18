@@ -15,12 +15,12 @@ An **unauthorized(not logged in) user** can:
 - **See all toy**. ![posts](https://i.imgur.com/ZrAoaCZ.png)
 - **See specific toy.** ![specific toy](https://i.imgur.com/X7ACVmT.png)
 - **See toys by user** 
-- **Create an account**. The account must have email, username, and password.
+- **Create an account**. The account must have an email, username, and password.
 
 A **logged in user** can:
 
-- **Create an account**. The account must have email, username, and password.
-- **Update their account**. They change their password, username, and email.
+- **Create an account**. The account must have an email, username, and password.
+- **Update their account**. They can change their password, username, and email.
 - **See their account details.**
 - **Delete their account** (includes their posts and comments due to FK constraint).
 - **Create a toy post**. ![Creation menu](https://i.imgur.com/U377f4w.png)
