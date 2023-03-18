@@ -1,0 +1,52 @@
+<div class="border-2 rounded-md p-2 flex flex-col">
+  <div class="flex flex-col mb-2">
+      <%= link_to post.user.name, user_path(id: post.user_id), class:"text-lg hover:text-blue-500 w-fit" %>
+      <%= link_to post.title, post_path(post), class: "text-xl m-auto font-bold hover:text-blue-500 w-fit" %>
+  </div>
+
+    <% if post.images.attached? %>
+    <div data-controller="carousel" class="swiper-container overflow-hidden relative" data-carousel-options-value='{"direction": "horizontal",   "pagination": { "el": ".swiper-pagination", 
+                    "dynamicBullets": "true", "clickable": "true" }}'>
+    <div class="swiper-wrapper">
+      <% post.images.each do |image| %>
+        <div class="swiper-slide"><%= cl_image_tag image.key, class:"w-64 h-64 m-auto" %></div>
+      <% end %>
+    </div>
+      <div class="swiper-pagination absolute bottom-0"></div>
+    </div>
+    <% end %>
+
+
+
+
+  <p class="text-gray-700 my-2 p-4 text-center"><%= post.body %></p>
+  <div class="flex flex-wrap gap-2 mt-6">
+    <% post.tags.each do |tag| %>
+        <% if tag.name == "Figurine" %>
+          <span class="px-2 py-1 bg-yellow-200 rounded-full text-sm"><%= tag.name %></span>
+        <% elsif tag.name == "Collection" %>
+          <span class="px-2 py-1 bg-sky-200 rounded-full text-sm"><%= tag.name %></span>
+        <% elsif tag.name == "Plush" %>
+          <span class="px-2 py-1 bg-pink-200 rounded-full text-sm"><%= tag.name %></span>
+        <% else %>
+          <span class="px-2 py-1 bg-gray-200 rounded-full text-sm"><%= tag.name %></span>
+        <% end %>
+    <% end %>
+  </div>
+  <% if current_user && current_user.id == post.user.id %>
+    <div class="flex mt-2">
+      <p class="mr-8 text-blue-500">
+        <%= link_to "Edit", edit_post_path(post), class:"hover:shadow-md p-1" %>
+      </p>
+      <p class="text-red-500">
+        <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"hover:shadow-md p-1" %>
+      </p>
+    </div>
+  <% end %>
+  <p class="text-gray-700 mt-2 text-sm">
+    Comments(<%= post.comments.count %>)
+  </p>
+  <p class="text-gray-700 mt-2 text-xs">
+    <%= standard_datetime(post.updated_at) %>
+  </p>
+</div>

@@ -1,0 +1,26 @@
+<div class="m-4">
+    <h1 class="text-2xl text-center m-4 font-bold">All Posts</h1>
+    <div class="lg:grid lg:grid-cols-4 items-center justify-center">
+        <%= @posts.each_with_index do |post, index| %>
+            <div class="p-3 border-2 bg-slate-50">
+                <span class="block hover:cursor-pointer hover:text-blue-500">User:<%= link_to post.user.name, "/admin/post_by_user/#{post.user.id}" %></span>
+                <span class="block">Title:<%= post.title %></span>
+                <span class="block">Content:<%= post.body %></span>
+                <% if post.images.attached? %>
+                    <div data-controller="carousel" class="swiper-container overflow-hidden relative mb-5" data-carousel-options-value='{"direction": "horizontal",   "pagination": { "el": ".swiper-pagination", 
+                                    "dynamicBullets": "true", "clickable": "true" }}'>
+                        <div class="swiper-wrapper">
+                            <% post.images.each do |image| %>
+                                <div class="swiper-slide"><%= cl_image_tag image.key, class:"w-64 h-64 m-auto" %></div>
+                            <% end %>
+                        </div>
+                        <div class="swiper-pagination absolute bottom-0"></div>
+                    </div>
+                <% end %>
+                <span class="block">Comments:<%= post.comments.count %></span>
+                  <p class="text-gray-700 mt-2 text-xs"><%= standard_datetime(post.created_at) %></p>
+                <span class="block w-fit m-auto hover:shadow-md border-2 border-black bg-red-600 p-3"><%= link_to "Delete", "/admin/post_check/#{post.id}", data:{turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></span>
+            </div>
+        <% end %>
+    </div>
+</div>

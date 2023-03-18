@@ -1,0 +1,20 @@
+<h1 class="m-auto p-4 text-center text-2xl font-bold">Welcome back admin</h1>
+
+<div>
+    <div class="p-6 border-2 bg-slate-50">
+        <h1 class="text-2xl font-bold hover:text-blue-500"><%= link_to "Post", "/admin/post_check" %></h1>
+        <p>Count: <%= @post_count %></p>
+    </div>
+    <div class="p-6 border-2 bg-slate-50">
+        <h1 class="text-2xl font-bold hover:text-blue-500"><%= link_to "Comment", "/admin/comment_check" %></h1>
+        <p>Count: <%= @comment_count %></p>
+    </div>
+    <div class="p-6 border-2 bg-slate-50">
+        <h1 class="text-2xl font-bold hover:text-blue-500"><%= link_to "Tag", "/admin/new_tag" %></h1>
+        <p>Count: <%= @tag_count %></p>
+    </div>
+    <div class="p-6 border-2 bg-slate-50">
+        <h1 class="text-2xl font-bold hover:text-blue-500"><%= link_to "User", "/admin/user_check" %></h1>
+        <p>Count: <%= @user_count %></p>
+    </div>
+</div>

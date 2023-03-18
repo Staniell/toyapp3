@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dgtt9x6po
+  api_key: '916859198616548'
+  api_secret: D7ZAk21ljFs0MPsyvfnlvFVP0p8
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dgtt9x6po
+  api_key: '916859198616548'
+  api_secret: D7ZAk21ljFs0MPsyvfnlvFVP0p8
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dgtt9x6po
+  api_key: '916859198616548'
+  api_secret: D7ZAk21ljFs0MPsyvfnlvFVP0p8
+  enhance_image_tag: true
+  static_file_support: false

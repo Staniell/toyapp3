@@ -1,0 +1,25 @@
+<%= javascript_include_tag 'posts' %>
+
+<div class="flex gap-5 mt-10 lg:mt-16 justify-center">
+  <div class="text-center border-4 border-grey-100">
+    <h1 class="text-2xl font-bold">From</h1>
+    <%= cl_image_tag @image.key, class:"w-80 h-80" %>
+  </div>
+
+  <div class="border-4 border-grey-100 flex flex-col justify-center items-center">
+    <%= form_with(model: [@post, @image], url: post_image_path(@post, @image), method: :put, local: true) do |form| %>
+      <%= form.label :To, class:"text-2xl font-bold text-center block" %>
+      <%= form.file_field :image, class:"hidden", id: "image-input" %>
+
+      <div class="w-80 h-80 mb-2" id="image-preview"></div>
+      
+      <div class="flex justify-evenly">
+          <label for="image-input" class="p-2 bg-white border-2 border-gray-600 hover:shadow cursor-pointer">
+            Upload Image
+          </label>
+          <%= form.submit 'Update Image', class:"p-2 border-2 border-gray-600 bg-white hover:shadow cursor-pointer" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
