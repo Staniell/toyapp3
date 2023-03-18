@@ -1,0 +1,9 @@
+<div class="m-6">
+    <h1 class="mt-5 text-2xl font-bolder mb-2">All Comments</h1>
+    <% @comments.each_with_index do |comment, index| %>
+        <div class="flex">
+            <%=index+1 %>. <%= comment.body %>
+            <%= link_to "Delete","comment_check/#{comment.id}" ,data:{turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"mx-5 hover:text-red-500" %>
+        </div>
+    <% end %>
+</div>

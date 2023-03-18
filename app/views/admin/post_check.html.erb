@@ -1,0 +1,19 @@
+<div class="">
+<h1 class="text-2xl font-bold">All Posts</h1>
+    <%= @posts.each_with_index do |post, index| %>
+        <span class="block"><%= index+1 %>. <%= post.title %></span>
+        <%= post.body %>
+        <% if post.images.attached? %>
+            <div data-controller="carousel" class="swiper-container overflow-hidden relative" data-carousel-options-value='{"direction": "horizontal",   "pagination": { "el": ".swiper-pagination", 
+                            "dynamicBullets": "true", "clickable": "true" }}'>
+                <div class="swiper-wrapper">
+                    <% post.images.each do |image| %>
+                        <div class="swiper-slide"><%= image_tag image, class:"w-64 h-64 m-auto" %></div>
+                    <% end %>
+                </div>
+                <div class="swiper-pagination absolute bottom-0"></div>
+            </div>
+        <% end %>
+        <%= link_to "Delete", "/admin/post_check/#{post.id}", data:{turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"mx-5 hover:shadow-md border-2 border-black p-3 bg-red-600 p-3" %>
+    <% end %>
+</div>
