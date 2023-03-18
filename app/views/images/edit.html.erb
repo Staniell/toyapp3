@@ -3,7 +3,7 @@
 <div class="flex gap-5 mt-10 lg:mt-16 justify-center">
   <div class="text-center border-4 border-grey-100">
     <h1 class="text-2xl font-bold">From</h1>
-    <%= image_tag @image, class:"w-80 h-80" %>
+    <%= cl_image_tag @image.key, class:"w-80 h-80" %>
   </div>
 
   <div class="border-4 border-grey-100 flex flex-col justify-center items-center">
