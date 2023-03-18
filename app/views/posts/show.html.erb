@@ -8,7 +8,7 @@
                                 "dynamicBullets": "true", "clickable": "true" }}'>
                 <div class="swiper-wrapper">
                 <% @post.images.each do |image| %>
-                    <div class="swiper-slide"><%= image_tag image, class:"w-64 h-64 m-auto" %></div>
+                    <div class="swiper-slide"><%= cl_image_tag image.key, class:"w-64 h-64 m-auto" %></div>
                 <% end %>
                 </div>
                 <div class="swiper-pagination absolute bottom-0"></div>
