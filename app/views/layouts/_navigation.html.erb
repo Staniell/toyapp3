@@ -12,9 +12,15 @@
         <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-xl lg:text-2xl font-bold">
              <%= link_to "Toys", "/posts" %>
         </li>
-        <% if current_user.role != "admin" %>
+        <% if current_user %>
+            <% if current_user.role != "admin" %>
+                <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-xl lg:text-2xl font-bold">
+                     <%= link_to "Gallery", "/images" %>
+                </li>
+            <% end %>
+        <% else %>
             <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-xl lg:text-2xl font-bold">
-                 <%= link_to "Gallery", "/images" %>
+                <%= link_to "Gallery", "/images" %>
             </li>
         <% end %>
         <li class="p-3 mx-3 hover:shadow-md hover:bg-slate-50 text-xl lg:text-2xl font-bold">
