@@ -41,7 +41,7 @@ An **admin** can:
 
 - **See the dashboard** of every model/entity involved with the web app such as comments, tags, users, and toys.
 - **See the user accounts, posts, comments, and tags** created.
-- **Delete post, users, comments, and tags.**
-- **Create tags.**
+- **Delete post, users, comments, and tags(FK constraint if the tag is used by user).**
+- **Create tags (limit of 5).**
 - **Update tags**.
 - **See toys by users.**
