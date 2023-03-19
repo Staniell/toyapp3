@@ -4,9 +4,10 @@
         <div class="flex border-2 border-black bg-slate-50 p-4">
             <div>
                 <%=index+1 %>. <span class="hover:text-blue-500"><%=link_to comment.user.name, "/admin/post_by_user/#{comment.user.id}" %></span>: <%= comment.body %>
-                <p class="text-gray-700 mt-2 text-xs"><%= standard_datetime(comment.created_at) %></p>
+                <p class="text-gray-700 mt-2 text-xs">Created:<%= standard_datetime(comment.created_at) %></p>
+                <p class="text-gray-700 mt-2 text-xs">Updated:<%= standard_datetime(comment.updated_at) %></p>
             </div>
-            <%= link_to "Delete","comment_check/#{comment.id}" ,data:{turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"mx-5 hover:shadow-md border-2 border-black bg-red-400 p-2" %>
+            <div class="self-center"><%= link_to "Delete","comment_check/#{comment.id}" ,data:{turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"mx-5 hover:shadow-md border-2 border-black bg-red-400 p-2" %></div>
         </div>
     <% end %>
 </div>

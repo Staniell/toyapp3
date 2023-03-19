@@ -42,7 +42,8 @@
         <p class="text-gray-700 mt-2 text-center">
           Comments(<%= post.comments.count %>)
         </p>
-        <p class="text-gray-700 mt-2 text-xs"><%= standard_datetime(post.created_at) %></p>
+        <p class="text-gray-700 mt-2 text-xs">Created:<%= standard_datetime(post.created_at) %></p>
+        <p class="text-gray-700 mt-2 text-xs">Updated:<%= standard_datetime(post.updated_at) %></p>
       </div>
     <% end %>
   </div>

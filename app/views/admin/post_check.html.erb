@@ -18,8 +18,9 @@
                     </div>
                 <% end %>
                 <span class="block">Comments:<%= post.comments.count %></span>
-                  <p class="text-gray-700 mt-2 text-xs"><%= standard_datetime(post.created_at) %></p>
-                <span class="block w-fit m-auto hover:shadow-md border-2 border-black bg-red-600 p-3"><%= link_to "Delete", "/admin/post_check/#{post.id}", data:{turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></span>
+                  <p class="text-gray-700 mt-2 text-xs">Updated:<%= standard_datetime(post.updated_at) %></p>
+                  <p class="text-gray-700 mt-2 text-xs">Created:<%= standard_datetime(post.created_at) %></p>
+                <span class="block w-fit m-auto hover:shadow-md border-2 border-black bg-red-600 p-2 mt-2"><%= link_to "Delete", "/admin/post_check/#{post.id}", data:{turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></span>
             </div>
         <% end %>
     </div>
