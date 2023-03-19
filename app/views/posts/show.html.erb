@@ -61,7 +61,6 @@
     <div class="lg:w-1/2 m-auto my-5">
         <h1 class="mb-3 font-bold">Comments</h1>
         <% @post.comments.each_with_index  do |comment, index| %>
-            <% if index+1 != @post.comments.length %>
             <div class="p-2 bg-slate-50 border-2 bg-slate-100 flex">
                 <p><%= "#{comment.user.name}" %>: <%= comment.body %></p>
             <% if current_user && current_user.id == comment.user.id %>
@@ -71,7 +70,6 @@
                 </div>
             <% end %>
             </div>
-            <% end %>
         <% end %>
     </div>
 </div> 
