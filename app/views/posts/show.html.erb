@@ -44,6 +44,7 @@
                 </div>
             <% end %>
         </div>
+        <span class="p-5 text-xs text-gray-500 mb-2"><%= standard_datetime(@post.created_at) %></span>
     </div>
     <p class="lg:w-1/2 m-auto mt-2">By: <%= link_to @post.user.name, user_path(@post.user), class:"font-bold hover:text-blue-500" %></p>
     <div class="lg:w-1/2 m-auto mt-5">
@@ -61,8 +62,12 @@
     <div class="lg:w-1/2 m-auto my-5">
         <h1 class="mb-3 font-bold">Comments</h1>
         <% @post.comments.each_with_index  do |comment, index| %>
+            <% if index+1 != @post.comments.length %>
             <div class="p-2 bg-slate-50 border-2 bg-slate-100 flex">
-                <p><%= "#{comment.user.name}" %>: <%= comment.body %></p>
+                <div class="flex flex-col">
+                    <p><%= "#{comment.user.name}" %>: <%= comment.body %></p>
+                    <p class="text-xs text-gray-500"><%= standard_datetime(comment.created_at) %></p>
+                </div>
             <% if current_user && current_user.id == comment.user.id %>
                 <div class="flex text-sm">
                     <%= link_to "Edit", edit_comment_path(comment), class: "p-1 mr-2 ml-4 text-blue-500 border-2 rounder-md bg-blue-100" %>
@@ -70,6 +75,7 @@
                 </div>
             <% end %>
             </div>
+            <% end %>
         <% end %>
     </div>
 </div> 
