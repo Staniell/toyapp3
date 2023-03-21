@@ -1,7 +1,7 @@
 <div class="m-4">
     <h1 class="text-2xl text-center m-4 font-bold">All Posts</h1>
     <div class="lg:grid lg:grid-cols-4 items-center justify-center">
-        <%= @posts.each_with_index do |post, index| %>
+        <% @posts.each_with_index do |post, index| %>
             <div class="p-3 border-2 bg-slate-50">
                 <span class="block hover:cursor-pointer hover:text-blue-500">User:<%= link_to post.user.name, "/admin/post_by_user/#{post.user.id}" %></span>
                 <span class="block">Title:<%= post.title %></span>
